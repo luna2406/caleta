@@ -23,8 +23,10 @@ function formatoHora(hora) {
 
 // Hamburger menu functionality
 function toggleMenu() {
-    const menu = $('menu-items');
-    menu.classList.toggle('active');
+    const nav = $('main-nav');
+    const hamburger = $('hamburger-menu');
+    nav.classList.toggle('active');
+    hamburger.classList.toggle('active');
 }
 
 // Dashboard Updates
@@ -369,7 +371,8 @@ function generarGraficoOcupacion() {
     });
 }
 
-// Generate Frequent Clients Listfunction generarListaClientesFrecuentes() {
+// Generate Frequent Clients List
+function generarListaClientesFrecuentes() {
     get(clientesRef).then((snapshot) => {
         const clientes = snapshot.val() || {};
         const clientesOrdenados = Object.values(clientes)
@@ -383,7 +386,7 @@ function generarGraficoOcupacion() {
             </div>
         `).join('');
     });
-
+}
 
 // Generate Reservations by Day of Week Chart
 function generarGraficoReservacionesSemana() {
@@ -505,3 +508,4 @@ async function guardarNombreCancha(id) {
 
 // Initialize views when the DOM is loaded
 document.addEventListener('DOMContentLoaded', inicializarVistas);
+

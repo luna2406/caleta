@@ -24,11 +24,18 @@ header {
     background-color: #2c3e50;
     color: #ecf0f1;
     padding: 1rem 0;
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
 }
 
 header h1 {
-    margin-bottom: 1rem;
-    text-align: center;
+    margin-bottom: 0;
 }
 
 .menu-toggle {
@@ -40,14 +47,40 @@ header h1 {
     cursor: pointer;
 }
 
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #ecf0f1;
+}
+
+nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #2c3e50;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+nav.active {
+    display: block;
+}
+
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 10px 0;
 }
 
 nav ul li a {
@@ -223,16 +256,20 @@ footer {
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
     }
 
     nav {
         display: none;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #2c3e50;
+        padding: 1rem 0;
+        z-index: 1000;
     }
 
-    nav.show {
+    nav.active {
         display: block;
     }
 
@@ -245,11 +282,17 @@ footer {
         margin: 10px 0;
     }
 
-    .dashboard-grid,
-    #lista-canchas,
-    #clientes-container,
-    .reporte-grid {
-        grid-template-columns: 1fr;
+    /* Estilos para el menú hamburguesa activo */
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
 

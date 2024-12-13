@@ -7,9 +7,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Gestión de Canchas de Fútbol</h1>
-        <nav>
+    <header class="header-fixed">
+        <div class="header-content">
+            <h1>Gestión de Canchas de Fútbol</h1>
+            <button id="hamburger-menu" class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav id="main-nav">
             <ul>
                 <li><a href="index.html">Dashboard</a></li>
                 <li><a href="canchas.html" class="active">Canchas</a></li>
@@ -80,3 +87,4 @@
     <script type="module" src="script.js"></script>
 </body>
 </html>
+
