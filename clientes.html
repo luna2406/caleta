@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - Gestión de Canchas de Fútbol</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Canchas de Fútbol</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="canchas.html">Canchas</a></li>
+                <li><a href="reservaciones.html">Reservaciones</a></li>
+                <li><a href="clientes.html" class="active">Clientes</a></li>
+                <li><a href="reportes.html">Reportes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="alerta-container" class="alerta"></div>
+        <section id="nuevo-cliente">
+            <h2>Agregar Nuevo Cliente</h2>
+            <form id="form-cliente">
+                <div class="form-group">
+                    <label for="nombre-cliente">Nombre:</label>
+                    <input type="text" id="nombre-cliente" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono-cliente">Teléfono:</label>
+                    <input type="tel" id="telefono-cliente" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-cliente">Email:</label>
+                    <input type="email" id="email-cliente">
+                </div>
+                <button type="submit">Agregar Cliente</button>
+            </form>
+        </section>
+
+        <section id="lista-clientes">
+            <h2>Lista de Clientes</h2>
+            <div id="clientes-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Gestión de Canchas de Fútbol. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
+        import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCoEoSEUy6BP1HYvTMiJmZpgjK91FUtg5w",
+            authDomain: "caleta-688ea.firebaseapp.com",
+            projectId: "caleta-688ea",
+            storageBucket: "caleta-688ea.appspot.com",
+            messagingSenderId: "991219806672",
+            appId: "1:991219806672:web:ae91438103193b2c5a89d5",
+            measurementId: "G-WVS42L8B3H"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        window.firebaseApp = app;
+        window.firebaseDatabase = database;
+    </script>
+
+    <!-- Tu archivo script.js -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

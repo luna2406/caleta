@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gestión de Canchas de Fútbol</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Canchas de Fútbol</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Dashboard</a></li>
+                <li><a href="canchas.html">Canchas</a></li>
+                <li><a href="reservaciones.html">Reservaciones</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="reportes.html">Reportes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="resumen">
+            <h2>Resumen del Día</h2>
+            <div class="dashboard-grid">
+                <div class="dashboard-item" id="total-canchas">
+                    <h3>Total de Canchas</h3>
+                    <p class="big-number">0</p>
+                </div>
+                <div class="dashboard-item" id="canchas-ocupadas">
+                    <h3>Canchas Ocupadas</h3>
+                    <p class="big-number">0</p>
+                </div>
+                <div class="dashboard-item" id="canchas-disponibles">
+                    <h3>Canchas Disponibles</h3>
+                    <p class="big-number">0</p>
+                </div>
+                <div class="dashboard-item" id="reservaciones-hoy">
+                    <h3>Reservaciones Hoy</h3>
+                    <p class="big-number">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="proximas-reservaciones">
+            <h2>Próximas Reservaciones</h2>
+            <div id="lista-proximas-reservaciones"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Gestión de Canchas de Fútbol. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
+        import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCoEoSEUy6BP1HYvTMiJmZpgjK91FUtg5w",
+            authDomain: "caleta-688ea.firebaseapp.com",
+            projectId: "caleta-688ea",
+            storageBucket: "caleta-688ea.appspot.com",
+            messagingSenderId: "991219806672",
+            appId: "1:991219806672:web:ae91438103193b2c5a89d5",
+            measurementId: "G-WVS42L8B3H"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        window.firebaseApp = app;
+        window.firebaseDatabase = database;
+    </script>
+
+    <!-- Your script file -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
